@@ -4,3 +4,81 @@
     box-sizing: border-box;
 }
 
+.container {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.8fr) 4fr;
+    /*auto to make the first row (header) be as big as the content in it*/
+    grid-template-rows: auto 1fr;
+    /*min-height so the container is at least 100 viewport height but
+    if there is more content, the container will grow*/
+    min-height: 100vh;
+}
+
+aside {
+    background-color: lightblue;
+    grid-column: 1 / 2;
+    /*-1 to make it go from the first row to the last, could also just write 3*/
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    padding: 1em;
+    font-size: 1.5rem;
+    gap: 5rem;
+    align-content: start;
+
+
+}
+
+li+li {
+    margin-top: 0.4em;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    background-color: lightcoral;
+    grid-column: 2;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 3fr 1fr;
+}
+
+search {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1em;
+    padding: 1.5em;
+}
+
+search img {
+    width: 1.5rem; /* Or a size that looks good to you */
+    height: 1.5rem;
+    cursor: pointer;
+}
+search img:hover {
+    opacity: 0.6; /* Makes the icon slightly faded */
+    transform: scale(1.1); /* Makes the icon slightly bigger */
+}
+
+input {
+    width: 100%;
+    border-radius: 9px;
+    border: none;
+    background-color: lightgray;
+    height: 1.5rem;
+    padding: 5px;
+}
+input:focus {
+    /* You can use outline, border, or box-shadow. Outline is often best. */
+    outline: 2px solid #0ea5e9; /* A nice, visible blue */
+}
+main {
+    background-color: lightgreen;
+    grid-column: 2;
+    grid-row: 2;
+}
+
