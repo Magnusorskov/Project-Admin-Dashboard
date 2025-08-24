@@ -4,6 +4,23 @@
     box-sizing: border-box;
 }
 
+/*:root {*/
+/*    --color-primary: hsl(0, 50%, 90%);*/
+/*    --color-secondary: hsl(0, 50%, 10%);*/
+/*    --color-tertiary: hsl(262, 80%, 20%);*/
+/*    --color-accent: hsl(142, 80%, 20%);*/
+/*}*/
+:root {
+    --color-primary: hsl(0, 0%, 15%);
+    --color-secondary: hsl(0, 0%, 20%);
+    --color-tertiary: hsl(0, 0%, 25%);
+    --color-text: hsl(0, 0%, 95%);
+    --text-muted: hsl(0, 0%, 70%);
+    --border-settngs: 1px solid var(--color-tertiary);
+    color: var(--color-text);
+}
+
+
 .container {
     display: grid;
     grid-template-columns: minmax(250px, 0.8fr) 4fr;
@@ -15,7 +32,7 @@
 }
 
 aside {
-    background-color: lightblue;
+    background-color: var(--color-secondary);
     grid-column: 1 / 2;
     /*-1 to make it go from the first row to the last, could also just write 3*/
     grid-row: 1 / -1;
@@ -25,11 +42,12 @@ aside {
     font-size: 1.5rem;
     gap: 5rem;
     align-content: start;
+    border-right: var(--border-settngs);
 
 
 }
 
-li+li {
+li + li {
     margin-top: 0.4em;
 }
 
@@ -38,12 +56,13 @@ li {
 }
 
 header {
-    background-color: lightcoral;
+    background-color: var(--color-primary);
     grid-column: 2;
     grid-row: 1 / 2;
     display: grid;
     grid-template-rows: repeat(2, auto);
     grid-template-columns: 3fr 1fr;
+    border-bottom: var(--border-settngs);
 }
 
 search {
@@ -54,12 +73,14 @@ search {
     padding: 1.5em;
 }
 
-search img {
+label[for="user-search"] {
     width: 1.5rem; /* Or a size that looks good to you */
     height: 1.5rem;
     cursor: pointer;
+    fill: var(--text-muted);
 }
-search img:hover {
+
+label[for="user-search"]:hover {
     opacity: 0.6; /* Makes the icon slightly faded */
     transform: scale(1.1); /* Makes the icon slightly bigger */
 }
@@ -68,17 +89,37 @@ input {
     width: 100%;
     border-radius: 9px;
     border: none;
-    background-color: lightgray;
+    background-color: var(--color-secondary);
     height: 1.5rem;
     padding: 5px;
 }
+
 input:focus {
     /* You can use outline, border, or box-shadow. Outline is often best. */
     outline: 2px solid #0ea5e9; /* A nice, visible blue */
 }
+
 main {
-    background-color: lightgreen;
+    background-color: var(--color-primary);
     grid-column: 2;
     grid-row: 2;
+}
+
+button {
+    background-color: var(--color-secondary);
+    color: var(--text-muted);
+
+    padding: 0.6rem 1.8rem; /*first value top/bottom, second left/right */
+
+    border: var(--border-settngs);
+    border-radius: 999px;
+
+    font-size: 0.9rem;
+
+}
+
+button:hover {
+    color: hsl(0, 0%, 75%);
+    background-color: hsl(0, 0%, 25%);
 }
 
