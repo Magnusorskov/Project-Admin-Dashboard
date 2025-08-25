@@ -61,32 +61,20 @@ header {
     grid-row: 1 / 2;
     display: grid;
     grid-template-rows: repeat(2, auto);
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: minmax(300px, 1.2fr) 1fr;
     border-bottom: var(--border-settngs);
+    padding: 1rem 2rem;
+    gap: 1.5rem;
 }
 
-search {
+.search-container {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    gap: 1em;
-    padding: 1.5em;
+    gap: 1rem;
+
 }
 
-label[for="user-search"] {
-    width: 1.5rem; /
-    height: 1.5rem;
-    cursor: pointer;
-    fill: var(--text-muted);
-}
-
-label[for="user-search"]:hover {
-    transform: scale(1.1);
-}
-
-label[for="user-search"]:active {
-    fill: hsl(0, 0%, 95%);
-}
 
 input {
     width: 100%;
@@ -100,14 +88,84 @@ input {
 }
 
 input:focus {
-    /* You can use outline, border, or box-shadow. Outline is often best. */
-    outline: 1px solid hsl(0, 0%, 50%); /* A nice, visible blue */
+    outline: 1px solid hsl(0, 0%, 50%);
 }
 
-main {
-    background-color: var(--color-primary);
-    grid-column: 2;
-    grid-row: 2;
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited, a:link {
+    color: var(--text-muted);
+}
+
+a:hover {
+    color: hsl(0, 0%, 85%);
+}
+
+a:active {
+    color: hsl(0, 0%, 100%);
+
+}
+
+.user {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    justify-self: end;
+    gap: 1.5rem;
+}
+
+svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    fill: var(--text-muted);
+}
+
+svg:hover,
+img:hover {
+    transform: scale(1.1);
+}
+
+svg:active {
+    fill: hsl(0, 0%, 95%);
+}
+
+img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    border: var(--border-settngs);
+
+}
+
+img:active {
+    filter: brightness(120%);
+}
+
+.greeting img {
+    width: 6rem;
+    height: 6rem;
+}
+
+.greeting {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    justify-self: start;
+}
+
+.greeting p {
+    font-size: 1.2rem;
+}
+
+.greeting p + p {
+    font-size: 1.7rem;
+    margin-top: 0.25rem;
+    font-weight: bold;
 }
 
 button {
@@ -133,21 +191,98 @@ button:active {
     background-color: hsl(0, 0%, 35%);
 }
 
-a {
-    text-decoration: none;
-    font-weight: bold;
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    align-items: center;
+    justify-self: end;
 }
 
-a:visited, a:link {
-    color: var(--text-muted);
+main {
+    background-color: var(--color-primary);
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    padding: 1.8rem 1.5rem;;
+    gap: 1.5rem;
 }
 
-a:hover {
-    color: hsl(0, 0%, 85%);
+.projects-section {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
 }
 
-a:active {
-    color: hsl(0, 0%, 100%);
+.projects-section, .announcements-section, .trending-section {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
 
 }
+
+
+.card {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+
+    padding: 1rem;
+    min-height: 200px;
+    word-break: break-word;
+    font-size: clamp(0.9rem, 2vw, 1rem)
+    border-left: 0.5rem solid hsl(0, 0%, 22%);
+
+}
+
+.card, .announcements-container, .trending-container {
+    background-color: var(--color-secondary);
+    outline: var(--border-settngs);
+    border-radius: 10px;
+}
+
+.announcements-container {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.announcement-card + .announcement-card {
+    border-top: var(--border-settngs);
+    padding-top: 1rem; /* Optional: add some space */
+}
+
+
+.trending-container {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    padding: 1rem;
+    gap: 1rem;
+
+}
+
+h1, h2, .greeting-text p+p {
+    color: var(--color-text);
+}
+
+.trending-card {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-self: start;
+    gap: 1rem;
+}
+
+.trending-user-text {
+
+}
+
 
