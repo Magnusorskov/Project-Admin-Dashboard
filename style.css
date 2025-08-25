@@ -53,12 +53,13 @@ li + li {
 
 li {
     list-style: none;
+
 }
+
+
 
 header {
     background-color: var(--color-primary);
-    grid-column: 2;
-    grid-row: 1 / 2;
     display: grid;
     grid-template-rows: repeat(2, auto);
     grid-template-columns: minmax(300px, 1.2fr) 1fr;
@@ -94,6 +95,8 @@ input:focus {
 a {
     text-decoration: none;
     font-weight: bold;
+    display: flex;
+    gap: 1rem;
 }
 
 a:visited, a:link {
@@ -117,6 +120,8 @@ a:active {
     gap: 1.5rem;
 }
 
+
+
 svg {
     width: 1.5rem;
     height: 1.5rem;
@@ -134,8 +139,8 @@ svg:active {
 }
 
 img {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 999px;
     border: var(--border-settngs);
 
@@ -202,30 +207,24 @@ button:active {
 
 main {
     background-color: var(--color-primary);
-    grid-column: 2;
-    grid-row: 2;
     display: grid;
     grid-template-columns: 4fr 1fr;
-    grid-template-rows: auto 1fr;
-    align-items: start;
+
     padding: 1.8rem 1.5rem;;
-    gap: 1.5rem;
+    gap: 3rem;
 }
 
-.projects-section {
-    grid-column: 1 / 2;
-    grid-row: 1 / -1;
-}
-
-.projects-section, .announcements-section, .trending-section {
+.projects-section, .right-side {
     display: grid;
-    grid-template-rows: auto auto;
-    gap: 1rem;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+
 }
+
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     gap: 2rem;
 
 }
@@ -233,14 +232,30 @@ main {
 
 .card {
     display: grid;
-    grid-template-rows: repeat(3, auto);
-
+    grid-template-rows: repeat(2, auto);
     padding: 1rem;
     min-height: 200px;
+
     word-break: break-word;
-    font-size: clamp(0.9rem, 2vw, 1rem);
     border-left: 0.5rem solid hsl(0, 0%, 22%);
-/*test*/
+}
+
+h1, h2 {
+    font-size: 1.8rem;
+}
+
+.card p {
+    font-size: 1.3rem;
+}
+
+.card-text-container h2 {
+    margin-bottom: 1rem;
+}
+.link-container {
+    display: flex;
+    justify-content: end;
+    align-self: end;
+    gap: 1.5rem;
 }
 
 .card, .announcements-container, .trending-container {
@@ -252,8 +267,11 @@ main {
 .announcements-container {
     display: grid;
     grid-template-rows: repeat(3, auto);
-    padding: 1rem;
-    gap: 1rem;
+    padding: 2rem;
+}
+
+.announcements-container h2 {
+    font-size: 1.3rem;
 }
 
 .announcement-card + .announcement-card {
@@ -282,7 +300,13 @@ h1, h2, .greeting-text p+p {
 }
 
 .trending-user-text {
-
+    align-self: center;
 }
+
+.trending-user-text p:first-child {
+    color: var(--color-text);
+}
+
+
 
 
